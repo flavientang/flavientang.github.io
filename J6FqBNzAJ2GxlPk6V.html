@@ -1,0 +1,583 @@
+<html><head><base href="https://amicap33.org">
+<title>AMICAP33 - L'amitié autour du handicap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+  
+  :root {
+    --primary-color: #6C63FF;
+    --secondary-color: #FF6584;
+    --accent-color: #4CAF50;
+    --text-color: #333333;
+    --bg-color: #F0F8FF; /* Light blue background */
+    --card-bg: #FFFFFF;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background: linear-gradient(135deg, #E6F3FF, #F0F8FF, #E6F3FF); /* Gradient background */
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  nav {
+    background-color: rgba(108, 99, 255, 0.9);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  .logo-text {
+    color: white;
+    font-size: 1.2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .slogan {
+    color: white;
+    font-size: 0.8em;
+    font-style: italic;
+    margin-left: 10px;
+    opacity: 0.8;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 150px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://websim.ai/c/hero-pattern.svg') repeat;
+    opacity: 0.1;
+    animation: moveBackground 20s linear infinite;
+  }
+
+  @keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hero p.slogan {
+    font-size: 3em;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    position: relative;
+    animation: fadeInUp 1s ease-out 0.2s;
+    animation-fill-mode: both;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .hero p.description {
+    font-size: 2em;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    position: relative;
+    animation: fadeInUp 1s ease-out 0.4s;
+    animation-fill-mode: both;
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out 0.6s;
+    animation-fill-mode: both;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.5s;
+  }
+
+  .cta-button:hover::before {
+    left: 100%;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .section {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    margin: 40px 0;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 15px auto 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card:hover::before {
+    opacity: 0.1;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover img {
+    transform: scale(1.1);
+  }
+
+  .card-content {
+    padding: 25px;
+  }
+
+  .card-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3em;
+  }
+
+  .team-member {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+
+  .team-member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 25px;
+    flex-shrink: 0;
+  }
+
+  .team-member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-member-info {
+    flex-grow: 1;
+  }
+
+  .team-member h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.4em;
+  }
+
+  .team-member p {
+    margin: 5px 0;
+    font-size: 0.9em;
+  }
+
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 40px;
+  }
+
+  footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  footer a:hover {
+    color: var(--accent-color);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    margin: 40px 0;
+  }
+
+  .parallax::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+  }
+
+  .parallax-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .parallax h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  .parallax p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+  <nav id="navbar">
+    <ul>
+      <li class="logo-container">
+        <img src="https://websim.ai/c/amicap33_logo.png" alt="Logo AMICAP33" width="40" height="40" class="logo">
+        <span class="logo-text">AMICAP33</span>
+        <span class="slogan">L'amitié autour du handicap</span>
+      </li>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#notre-mission">Mission</a></li>
+      <li><a href="#activites">Activités</a></li>
+      <li><a href="#equipe">Équipe</a></li>
+      <li><a href="#adhesion">Rejoignez-nous</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="accueil" class="hero">
+      <div class="container">
+        <h1 class="animate-fade-in-up">AMICAP33</h1>
+        <p class="slogan animate-fade-in-up">L'amitié autour du handicap</p>
+        <p class="description animate-fade-in-up">Ensemble, créons un monde plus inclusif où l'amitié transcende les différences</p>
+        <a href="#adhesion" class="cta-button animate-fade-in-up">Rejoignez notre mouvement</a>
+      </div>
+    </section>
+
+    <section id="notre-mission" class="section">
+      <div class="container">
+        <h2 class="section-title">Notre Mission</h2>
+        <div class="grid">
+          <div class="card animate-fade-in-up">
+            <img src="https://websim.ai/c/lien-social.jpg" alt="Personnes se tenant la main en cercle, symbolisant l'unité et le soutien mutuel" width="280" height="180">
+            <div class="card-content">
+              <h3>Créer du Lien</h3>
+              <p>Nous tissons des connexions authentiques entre personnes en situation de handicap, proches, et tous ceux favorables à la promotion du vivre ensemble.</p>
+            </div>
+          </div>
+          <div class="card animate-fade-in-up">
+            <img src="https://websim.ai/c/evenements.jpg" alt="Groupe joyeux participant à un événement inclusif et coloré" width="280" height="180">
+            <div class="card-content">
+              <h3>Partager des Moments</h3>
+              <p>Nous organisons des événements et des sorties pour créer des temps forts et lutter contre l'isolement.</p>
+            </div>
+          </div>
+          <div class="card animate-fade-in-up">
+            <img src="https://websim.ai/c/sensibilisation.jpg" alt="Atelier interactif de sensibilisation au handicap" width="280" height="180">
+            <div class="card-content">
+              <h3>Promouvoir l'Inclusion</h3>
+              <p>Nous montons des projets pour favoriser l'inclusion sociale, professionnelle et culturelle, et améliorer l'accessibilité.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="parallax" style="background-image: url('https://websim.ai/c/inspiration-parallax.jpg');">
+      <div class="parallax-content">
+        <h2>Ensemble, Changeons les Regards</h2>
+        <p>AMICAP33 s'engage à créer un monde où chaque individu est valorisé, quelles que soient ses différences.</p>
+      </div>
+    </div>
+
+    <section id="activites" class="section">
+      <div class="container">
+        <h2 class="section-title">Nos Activités</h2>
+        <div class="grid">
+          <div class="card animate-fade-in-up">
+            <img src="https://websim.ai/c/sorties-culturelles.jpg" alt="Groupe découvrant une exposition d'art accessible à tous" width="280" height="180">
+            <div class="card-content">
+              <h3>Sorties Culturelles</h3>
+              <p>Découvrez avec nous des expériences artistiques et culturelles adaptées et ouvertes à tous.</p>
+            </div>
+          </div>
+          <div class="card animate-fade-in-up">
+            <img src="https://websim.ai/c/ateliers-creatifs.jpg" alt="Participants s'exprimant lors d'un atelier créatif inclusif" width="280" height="180">
+            <div class="card-content">
+              <h3>Ateliers Créatifs</h3>
+              <p>Participez à nos ateliers innovants pour exprimer votre créativité et découvrir de nouveaux talents.</p>
+            </div>
+          </div>
+          <div class="card animate-fade-in-up">
+            <img src="https://websim.ai/c/sensibilisation-entreprises.jpg" alt="Séance de sensibilisation au handicap en entreprise" width="280" height="180">
+            <div class="card-content">
+              <h3>Sensibilisation en Entreprise</h3>
+              <p>Nous intervenons auprès des entreprises pour promouvoir l'inclusion et l'accessibilité en milieu professionnel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipe" class="section">
+      <div class="container">
+        <h2 class="section-title">Notre Équipe</h2>
+        <div class="grid">
+          <div class="team-member animate-fade-in-up">
+            <div class="team-member-photo">
+              <img src="https://websim.ai/c/domitille-mauze.jpg" alt="Portrait de Domitille MAUZE" width="120" height="120">
+            </div>
+            <div class="team-member-info">
+              <h3>Domitille MAUZE</h3>
+              <p>Présidente</p>
+              <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a6e6567637e6366666f676b7f706f4a6d676b636624696567">[email&#160;protected]</a></p>
+              <p>06 31 90 01 02</p>
+            </div>
+          </div>
+          <div class="team-member animate-fade-in-up">
+            <div class="team-member-photo">
+              <img src="https://websim.ai/c/sabrina-venot.jpg" alt="Portrait de Sabrina VENOT" width="120" height="120">
+            </div>
+            <div class="team-member-info">
+              <h3>Sabrina VENOT</h3>
+              <p>Secrétaire</p>
+              <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f4c7e7d6d76717e31697a71706b5f706d7e71787a31796d">[email&#160;protected]</a></p>
+              <p>06 77 52 13 17</p>
+            </div>
+          </div>
+          <div class="team-member animate-fade-in-up">
+            <div class="team-member-photo">
+              <img src="https://websim.ai/c/sybile-delapierre.jpg" alt="Portrait de Sybile DELAPIERRE" width="120" height="120">
+            </div>
+            <div class="team-member-info">
+              <h3>Sybile DELAPIERRE</h3>
+              <p>Trésorière</p>
+              <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7b08021912171e551f1e171a0b121e09091e3b1c161a121755181416">[email&#160;protected]</a></p>
+              <p>06 87 27 17 65</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="adhesion" class="section">
+      <div class="container">
+        <h2 class="section-title">Rejoignez-nous</h2>
+        <p class="text-center">Devenez membre d'AMICAP33 et participez à notre mission pour un monde plus inclusif.</p>
+        <div class="grid">
+          <div class="card animate-fade-in-up">
+            <div class="card-content">
+              <h3>Adhésion Individuelle</h3>
+              <p>Cotisation annuelle : 20€</p>
+              <p>Payable en 4 fois (4 x 5€)</p>
+              <a href="#" class="cta-button">Adhérer</a>
+            </div>
+          </div>
+          <div class="card animate-fade-in-up">
+            <div class="card-content">
+              <h3>Adhésion Entreprise</h3>
+              <p>Cotisation annuelle : 150€</p>
+              <p>Payable en une fois</p>
+              <a href="#" class="cta-button">Devenir Partenaire</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contactez-nous</h2>
+        <p class="text-center">N'hésitez pas à nous contacter pour plus d'informations ou pour participer à nos activités.</p>
+        <div class="contact-info">
+          <p>Adresse : Villa Clément V, Avenue Eugène et Marc Dulout, 33600 PESSAC</p>
+          <p>Email : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="accfc3c2d8cdcfd8eccdc1c5cfcddc9f9f82c3decb">[email&#160;protected]</a></p>
+          <p>Téléphone : 06 31 90 01 02</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 AMICAP33 - L'amitié autour du handicap</p>
+      <p>Association régie par la loi du 1er juillet 1901</p>
+      <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
+    </div>
+  </footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
